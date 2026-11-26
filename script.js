@@ -108,12 +108,12 @@ const projects = [
     live: `${PAGES}/Persona/`,
     source: `${GITHUB}/Persona`,
     images: [
-      "images/persona-1.jpg?v=52b4425",
-      "images/persona-2.jpg?v=52b4425",
-      "images/persona-3.jpg?v=52b4425",
-      "images/persona-4.jpg?v=52b4425",
-      "images/persona-5.jpg?v=52b4425",
-      "images/persona-6.jpg?v=52b4425"
+      "images/persona-1.jpg?v=09ab4b8",
+      "images/persona-2.jpg?v=09ab4b8",
+      "images/persona-3.jpg?v=09ab4b8",
+      "images/persona-4.jpg?v=09ab4b8",
+      "images/persona-5.jpg?v=09ab4b8",
+      "images/persona-6.jpg?v=09ab4b8"
     ]
   },
 
