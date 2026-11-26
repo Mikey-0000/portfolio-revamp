@@ -165,22 +165,22 @@ const projects = [
     title: "The Hollow Spire",
     filters: ["game", "current"],
     period: "2026 — Goldsmiths, University of London",
-    subtitle: "Interactive browser game made with p5.js",
+    subtitle: "Turn-based RPG made with p5.js",
     description:
-      "An interactive browser-based game developed during my Computer Science undergraduate studies at Goldsmiths, University of London. It explores interactive storytelling, gameplay mechanics, visual design and frontend programming.",
+      "An original turn-based RPG built during my Computer Science studies at Goldsmiths, University of London. You climb three floors of the spire, explore each one, and defeat the Hollow Wisp, the Spire Reaper and the Abyssal King to claim the Spire Relic. Battles use attacks, Fire and Ice skills that exploit enemy weaknesses, elixirs and guarding. Move with WASD or the arrow keys, interact with E and select with Enter.",
     summary: {
       what: "A browser game with interactive storytelling and gameplay mechanics.",
       how: "JavaScript with the p5.js creative-coding library.",
       why: "To learn game loops, input handling and drawing."
     },
     tech: ["JavaScript", "p5.js"],
+    live: `${PAGES}/hollow-spire/`,
+    source: `${GITHUB}/hollow-spire`,
     images: [
-      "images/hollow-1.webp",
-      "images/hollow-2.webp",
-      "images/hollow-3.webp",
-      "images/hollow-4.webp",
-      "images/hollow-5.webp",
-      "images/hollow-6.webp"
+      "images/hollow-1.jpg",
+      "images/hollow-2.jpg",
+      "images/hollow-3.jpg",
+      "images/hollow-4.jpg"
     ]
   }
 ];
