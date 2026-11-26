@@ -97,7 +97,7 @@
               ls projects/
             </p>
             <p class="terminal-output">
-              newjeans/ heritage/ hollow-spire/ gaming-map/
+              ashen-hollow/ gaming-map-revamp/ persona/ zelda/ newjeans/ heritage/ hollow-spire/
             </p>
 
             <p>
@@ -114,27 +114,21 @@
               <h2>Selected <span>Projects</span></h2>
             </div>
 
-            <span class="muted">04 projects</span>
+            <span class="muted" id="project-count">07 projects</span>
           </div>
 
           <p class="intro">
-            A collection of university projects exploring
-            frontend development, web design, programming
-            and interactive digital experiences.
+            Recent games and interactive websites. Every live project below
+            is embedded and playable right here: click a card to try it,
+            or open the live site and source code on GitHub.
           </p>
 
           <div class="filters" role="group" aria-label="Filter projects">
-            <button type="button" class="filter active" data-filter="all" aria-pressed="true">
-              All Projects
-            </button>
-
-            <button type="button" class="filter" data-filter="current" aria-pressed="false">
-              Goldsmiths / Current
-            </button>
-
-            <button type="button" class="filter" data-filter="2025" aria-pressed="false">
-              City / 2025
-            </button>
+            <button type="button" class="filter active" data-filter="all" aria-pressed="true">All Projects</button>
+            <button type="button" class="filter" data-filter="game" aria-pressed="false">Games</button>
+            <button type="button" class="filter" data-filter="web" aria-pressed="false">Interactive Sites</button>
+            <button type="button" class="filter" data-filter="current" aria-pressed="false">2026 / Current</button>
+            <button type="button" class="filter" data-filter="2025" aria-pressed="false">City / 2025</button>
           </div>
 
           <div class="project-grid" id="project-grid"></div>
@@ -290,13 +284,16 @@
     <span>HTML &nbsp; UTF-8 &nbsp; Consolas</span>
   </div>
 
-  <dialog id="project-dialog" aria-labelledby="dialog-title">
+  <dialog id="project-dialog" class="project-dialog" aria-labelledby="dialog-title">
     <div class="dialog-header">
-      <span>project.details</span>
+      <span id="dialog-file">project.details</span>
 
-      <button type="button" id="close-dialog" aria-label="Close project details">
-        ✕
-      </button>
+      <div class="dialog-actions">
+        <a id="dialog-live-link" class="dialog-action" target="_blank" rel="noopener">open live ↗</a>
+        <a id="dialog-source-link" class="dialog-action" target="_blank" rel="noopener">source ↗</a>
+        <button type="button" id="dialog-fullscreen" class="dialog-action" aria-label="Play full screen">⛶ full screen</button>
+        <button type="button" id="close-dialog" aria-label="Close project details">✕</button>
+      </div>
     </div>
 
     <div class="dialog-body">
@@ -304,6 +301,17 @@
       <h2 id="dialog-title"></h2>
       <p id="dialog-description"></p>
       <div class="tags" id="dialog-tags"></div>
+
+      <div class="view-toggle" id="dialog-views" role="group" aria-label="Choose view">
+        <button type="button" class="filter active" data-view="live" aria-pressed="true">▶ Live demo</button>
+        <button type="button" class="filter" data-view="screens" aria-pressed="false">▦ Screenshots</button>
+      </div>
+
+      <div class="live-frame" id="dialog-live">
+        <div class="live-loading" aria-hidden="true">loading live demo<span class="cursor">_</span></div>
+        <iframe id="dialog-frame" title="Live demo" allow="fullscreen; autoplay; gamepad" allowfullscreen></iframe>
+      </div>
+
       <div class="gallery" id="dialog-gallery"></div>
     </div>
   </dialog>

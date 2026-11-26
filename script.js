@@ -1,58 +1,94 @@
-
 /* ==========================================
    DEVELOPER PORTFOLIO
    PROJECT DATA & INTERACTIONS
    ========================================== */
 
+const GITHUB = "https://github.com/mikey101101";
+const PAGES = "https://mikey101101.github.io";
+
+/*
+  Each project can have:
+  - live:   URL of the deployed site. Shown as a live preview on the card
+            and as a fully playable embed in the popup.
+  - source: GitHub repository URL.
+  - images: screenshots, shown in the popup's Screenshots view.
+  - filters: which filter buttons the card appears under.
+*/
 const projects = [
   {
-    id: "hollow",
-    title: "The Hollow Spire",
-    year: "current",
-    period: "2026 — Goldsmiths, University of London",
-    subtitle: "Interactive browser game",
+    id: "ashen-hollow",
+    title: "Ashen Hollow",
+    filters: ["game", "current"],
+    period: "2026 — Personal project",
+    subtitle: "Dark-fantasy pixel-art action RPG",
     description:
-      "The Hollow Spire is an interactive browser-based game developed during my Computer Science undergraduate studies at Goldsmiths, University of London. The project explores interactive storytelling, gameplay mechanics, visual design and frontend programming.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    images: [
-      "images/hollow-1.webp",
-      "images/hollow-2.webp",
-      "images/hollow-3.webp",
-      "images/hollow-4.webp",
-      "images/hollow-5.webp",
-      "images/hollow-6.webp"
-    ]
+      "A 2D action RPG of witchcraft, forgotten gods and a living village, built on a custom Canvas 2D engine with no dependencies. It has a three-hit combo system, dodges with perfect-dodge timing, a spellbook and skill tree, synthesised audio, dynamic lighting and weather, NPC schedules, and save/load. Click inside the game to start audio. Move with WASD, attack with J or left-click, dodge with Space, cast with L or right-click.",
+    tech: ["JavaScript", "Canvas 2D", "Game Engine", "Web Audio"],
+    live: `${PAGES}/ashen-hollow/`,
+    source: `${GITHUB}/ashen-hollow`,
+    images: []
   },
 
   {
-    id: "gaming",
-    title: "Gaming Map",
-    year: "current",
+    id: "gaming-map-revamp",
+    title: "Gaming Map Revamp",
+    filters: ["game", "web", "current"],
     period: "2026 — Goldsmiths, University of London",
-    subtitle: "Interactive Gaming Map",
+    subtitle: "Interactive arcade-style archive of video game history",
     description:
-      "Gaming Map is an interactive web project developed during my undergraduate studies at Goldsmiths, University of London. It focuses on visual navigation, interactive elements and presenting gaming-related content through an accessible web interface.",
-    tech: ["HTML", "CSS", "JavaScript"],
+      "An interactive layer over my original Historical Gaming Map. You can walk the star map with the arrow keys and collect data bits, scrub through gaming history from 1952 to today, and play genre mini-games: circuit puzzles, platform jumps, a duel against an AI that learns your habits, a lane runner, a sandbox builder and a survival game. It also has versus-mode radar charts, 19 achievements and a hidden Konami code.",
+    tech: ["HTML", "CSS", "JavaScript", "Pixel Art"],
+    live: `${PAGES}/Gaming-Map-Revamp/`,
+    source: `${GITHUB}/Gaming-Map-Revamp`,
     images: [
       "images/gaming-1.webp",
       "images/gaming-2.webp",
       "images/gaming-3.webp",
       "images/gaming-4.webp",
-      "images/gaming-5.webp",
-      "images/gaming-6.webp"
+      "images/gaming-5.webp"
     ]
   },
 
   {
+    id: "persona",
+    title: "Persona: Beyond the Mask",
+    filters: ["web", "current"],
+    period: "2026 — Personal project",
+    subtitle: "Interactive fan site across P3, P4 and P5",
+    description:
+      "A stylised, interactive fan site with separate themed sections for Persona 3, 4 and 5. Each section has its own visual identity, transitions and interactions. The site is fully static and deployable to GitHub Pages or Cloudflare.",
+    tech: ["HTML", "CSS", "JavaScript", "Motion Design"],
+    live: `${PAGES}/Persona/`,
+    source: `${GITHUB}/Persona`,
+    images: []
+  },
+
+  {
+    id: "zelda",
+    title: "Hyrule Encyclopedia",
+    filters: ["web", "game", "current"],
+    period: "2026 — Personal project",
+    subtitle: "Interactive Zelda encyclopedia",
+    description:
+      "A fan encyclopedia centred on Ocarina of Time. Navi follows your cursor and gives hints, and vines and parallax trees react to scrolling. You can cut grass for rupees, spend them in an inventory (press I), and play six ocarina songs that change the world: day and night, storms, hearts and falling leaves. It also has a Gold Skulltula hunt, trivia and a franchise timeline, and progress is saved in the browser.",
+    tech: ["HTML", "CSS", "JavaScript", "localStorage"],
+    live: `${PAGES}/Zelda/public/`,
+    source: `${GITHUB}/Zelda`,
+    images: []
+  },
+
+  {
     id: "newjeans",
-    title: "NewJeans Archive",
-    year: "2025",
+    title: "NewJeans Chat Archive",
+    filters: ["web", "2025"],
     period:
       "2025 — City, University of London · Computer Science Foundation Year",
     subtitle: "Interactive music and artist website",
     description:
-      "NewJeans Archive is an interactive music-inspired website developed in 2025 during my Computer Science Foundation Year at City, University of London. The project explores creative frontend development, artist presentation, interactive elements and user interface design.",
+      "An interactive music-inspired website first developed during my Computer Science Foundation Year at City, University of London, and since revamped. It is built around bubble-style chat messages and explores creative frontend development, artist presentation and user interface design.",
     tech: ["HTML", "CSS", "JavaScript"],
+    live: `${PAGES}/Newjeans/`,
+    source: `${GITHUB}/Newjeans`,
     images: [
       "images/newjeans-1.webp",
       "images/newjeans-2.webp",
@@ -65,22 +101,48 @@ const projects = [
 
   {
     id: "heritage",
-    title: "Heritage",
-    year: "2025",
+    title: "UK Heritage Trails 2026",
+    filters: ["web", "2025"],
     period:
-      "2025 — City, University of London · Computer Science Foundation Year",
+      "2025 — City, University of London · revamped 2026",
     subtitle: "Travel and cultural discovery website",
     description:
-      "UK Heritage Trails is a travel and cultural discovery website developed in 2025 during my Computer Science Foundation Year at City, University of London. It explores responsive web design, destination presentation, visual storytelling and interactive frontend development.",
-    tech: ["HTML", "CSS", "JavaScript"],
+      "A travel and cultural discovery website first built in my Foundation Year and redesigned in 2026 with an editorial look. It covers responsive design, destination pages and visual storytelling, and has a sign-up flow backed by a small Cloudflare Worker.",
+    tech: ["HTML", "CSS", "JavaScript", "Cloudflare Workers"],
+    live: `${PAGES}/UK-Heritage-Trails-2026/`,
+    source: `${GITHUB}/UK-Heritage-Trails-2026`,
     images: [
       "images/heritage-1.webp",
       "images/heritage-2.webp",
       "images/heritage-3.webp",
-      "images/heritage-4.webp"
+      "images/heritage-4.webp",
+      "images/heritage-5.webp"
+    ]
+  },
+
+  {
+    id: "hollow",
+    title: "The Hollow Spire",
+    filters: ["game", "current"],
+    period: "2026 — Goldsmiths, University of London",
+    subtitle: "Interactive browser game made with p5.js",
+    description:
+      "An interactive browser-based game developed during my Computer Science undergraduate studies at Goldsmiths, University of London. It explores interactive storytelling, gameplay mechanics, visual design and frontend programming.",
+    tech: ["JavaScript", "p5.js"],
+    images: [
+      "images/hollow-1.webp",
+      "images/hollow-2.webp",
+      "images/hollow-3.webp",
+      "images/hollow-4.webp",
+      "images/hollow-5.webp",
+      "images/hollow-6.webp"
     ]
   }
 ];
+
+/* Size of the virtual screen the card previews render at, before scaling down. */
+const PREVIEW_WIDTH = 1280;
+const PREVIEW_HEIGHT = 960;
 
 /* ==========================================
    DOM ELEMENTS
@@ -89,8 +151,15 @@ const projects = [
 const grid = document.getElementById("project-grid");
 const dialog = document.getElementById("project-dialog");
 
+const countLabel = document.getElementById("project-count");
+if (countLabel) {
+  countLabel.textContent =
+    `${String(projects.length).padStart(2, "0")} projects · ` +
+    `${projects.filter(p => p.live).length} live`;
+}
+
 /* ==========================================
-   CREATE TECHNOLOGY TAGS
+   HELPERS
    ========================================== */
 
 function makeTags(technologies) {
@@ -101,17 +170,101 @@ function makeTags(technologies) {
   });
 }
 
-/* ==========================================
-   IMAGE FALLBACK
-   ========================================== */
-
 function createPlaceholder(title) {
   const placeholder = document.createElement("div");
-
   placeholder.className = "placeholder";
   placeholder.textContent = title;
-
   return placeholder;
+}
+
+function makeLink(href, text, className) {
+  const a = document.createElement("a");
+  a.href = href;
+  a.target = "_blank";
+  a.rel = "noopener";
+  a.className = className;
+  a.textContent = text;
+  return a;
+}
+
+/* ==========================================
+   LIVE CARD PREVIEWS
+   A scaled-down, non-interactive copy of each live site.
+   Only loaded while the card is on screen, so off-screen
+   games are not running in the background.
+   ========================================== */
+
+const previewObserver =
+  "IntersectionObserver" in window
+    ? new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            const box = entry.target;
+            const frame = box.querySelector("iframe");
+            if (!frame) return;
+
+            if (entry.isIntersecting) {
+              if (!frame.src) frame.src = box.dataset.live;
+            } else if (frame.src) {
+              frame.removeAttribute("src");
+              box.classList.remove("is-loaded");
+            }
+          });
+        },
+        { rootMargin: "200px" }
+      )
+    : null;
+
+const resizeObserver =
+  "ResizeObserver" in window
+    ? new ResizeObserver(entries => {
+        entries.forEach(entry => scalePreview(entry.target));
+      })
+    : null;
+
+function scalePreview(box) {
+  const frame = box.querySelector("iframe");
+  if (!frame) return;
+  const scale = box.clientWidth / PREVIEW_WIDTH;
+  frame.style.transform = `scale(${scale})`;
+}
+
+function createPreview(project, imageBox) {
+  imageBox.classList.add("has-live");
+  imageBox.dataset.live = project.live;
+
+  const frame = document.createElement("iframe");
+  frame.title = `${project.title} live preview`;
+  frame.width = PREVIEW_WIDTH;
+  frame.height = PREVIEW_HEIGHT;
+  frame.tabIndex = -1;
+  frame.setAttribute("aria-hidden", "true");
+  frame.setAttribute("loading", "lazy");
+  frame.setAttribute("sandbox", "allow-scripts allow-same-origin");
+  frame.addEventListener("load", () => {
+    if (frame.src) imageBox.classList.add("is-loaded");
+  });
+
+  imageBox.appendChild(frame);
+
+  const badge = document.createElement("span");
+  badge.className = "live-badge";
+  badge.textContent = "● LIVE";
+
+  const play = document.createElement("span");
+  play.className = "play-overlay";
+  play.textContent = "▶ Try it here";
+
+  imageBox.append(badge, play);
+
+  if (previewObserver) {
+    previewObserver.observe(imageBox);
+  } else {
+    frame.src = project.live;
+  }
+
+  if (resizeObserver) resizeObserver.observe(imageBox);
+  requestAnimationFrame(() => scalePreview(imageBox));
 }
 
 /* ==========================================
@@ -120,40 +273,40 @@ function createPlaceholder(title) {
 
 function createProjectCard(project) {
   const article = document.createElement("article");
-
   article.className = "project";
-  article.dataset.year = project.year;
+  article.id = `project-${project.id}`;
+  article.dataset.filters = ["all", ...project.filters].join(" ");
 
   const button = document.createElement("button");
-
   button.type = "button";
   button.className = "project-button";
   button.setAttribute(
     "aria-label",
-    `View ${project.title} project details`
+    project.live
+      ? `Open ${project.title} live demo`
+      : `View ${project.title} project details`
   );
 
-  /* PROJECT IMAGE */
+  /* PREVIEW: live site if deployed, otherwise first screenshot */
 
   const imageBox = document.createElement("div");
   imageBox.className = "project-image";
 
   if (project.images.length > 0) {
     const img = document.createElement("img");
-
     img.src = project.images[0];
-    img.alt = `${project.title} website screenshot`;
+    img.alt = `${project.title} screenshot`;
     img.loading = "lazy";
-
+    img.className = "poster";
     img.onerror = () => {
-      img.remove();
-      imageBox.appendChild(createPlaceholder(project.title));
+      img.replaceWith(createPlaceholder(project.title));
     };
-
     imageBox.appendChild(img);
   } else {
     imageBox.appendChild(createPlaceholder(project.title));
   }
+
+  if (project.live) createPreview(project, imageBox);
 
   /* PROJECT INFORMATION */
 
@@ -167,7 +320,7 @@ function createProjectCard(project) {
   fileName.textContent = `${project.id}.project`;
 
   const arrow = document.createElement("span");
-  arrow.textContent = "↗";
+  arrow.textContent = project.live ? "▶" : "↗";
 
   meta.append(fileName, arrow);
 
@@ -182,14 +335,23 @@ function createProjectCard(project) {
   tags.append(...makeTags(project.tech));
 
   content.append(meta, heading, subtitle, tags);
-
   button.append(imageBox, content);
-
-  button.addEventListener("click", () => {
-    openProject(project);
-  });
+  button.addEventListener("click", () => openProject(project));
 
   article.appendChild(button);
+
+  /* LINKS (outside the button so they stay separately clickable) */
+
+  const links = document.createElement("div");
+  links.className = "project-links";
+
+  if (project.live) {
+    links.appendChild(makeLink(project.live, "live site ↗", "link-live"));
+  }
+  if (project.source) {
+    links.appendChild(makeLink(project.source, "source code ↗", "link-source"));
+  }
+  if (links.children.length) article.appendChild(links);
 
   return article;
 }
@@ -221,54 +383,119 @@ document.querySelectorAll(".filter").forEach(button => {
     button.setAttribute("aria-pressed", "true");
 
     document.querySelectorAll(".project").forEach(card => {
-      card.hidden =
-        filter !== "all" &&
-        card.dataset.year !== filter;
+      card.hidden = !card.dataset.filters.split(" ").includes(filter);
     });
   });
 });
 
 /* ==========================================
    PROJECT DETAIL POPUP
+   Live demo (fully interactive) + screenshots
    ========================================== */
+
+const dialogFrame = document.getElementById("dialog-frame");
+const liveWrap = document.getElementById("dialog-live");
+const gallery = document.getElementById("dialog-gallery");
+const viewToggle = document.getElementById("dialog-views");
+const liveLink = document.getElementById("dialog-live-link");
+const sourceLink = document.getElementById("dialog-source-link");
+const fullscreenButton = document.getElementById("dialog-fullscreen");
+
+function showView(view) {
+  if (!viewToggle) return;
+
+  viewToggle.querySelectorAll("button").forEach(btn => {
+    const active = btn.dataset.view === view;
+    btn.classList.toggle("active", active);
+    btn.setAttribute("aria-pressed", String(active));
+  });
+
+  if (liveWrap) liveWrap.hidden = view !== "live";
+  if (gallery) gallery.hidden = view !== "screens";
+}
+
+function setLink(link, href) {
+  if (!link) return;
+  link.hidden = !href;
+  if (href) link.href = href;
+}
 
 function openProject(project) {
   if (!dialog) return;
 
-  document.getElementById("dialog-date").textContent =
-    project.period;
-
-  document.getElementById("dialog-title").textContent =
-    project.title;
-
+  document.getElementById("dialog-file").textContent =
+    `${project.id}.project`;
+  document.getElementById("dialog-date").textContent = project.period;
+  document.getElementById("dialog-title").textContent = project.title;
   document.getElementById("dialog-description").textContent =
     project.description;
+  document.getElementById("dialog-tags")
+    .replaceChildren(...makeTags(project.tech));
 
-  /* TECHNOLOGIES */
+  setLink(liveLink, project.live);
+  setLink(sourceLink, project.source);
+  if (fullscreenButton) fullscreenButton.hidden = !project.live;
 
-  const tags = document.getElementById("dialog-tags");
-  tags.replaceChildren(...makeTags(project.tech));
+  /* LIVE DEMO */
 
-  /* SCREENSHOT GALLERY */
+  if (liveWrap && dialogFrame) {
+    liveWrap.classList.remove("is-loaded");
+    if (project.live) {
+      dialogFrame.title = `${project.title} live demo`;
+      dialogFrame.src = project.live;
+    } else {
+      dialogFrame.removeAttribute("src");
+    }
+  }
 
-  const gallery = document.getElementById("dialog-gallery");
-  gallery.replaceChildren();
+  /* SCREENSHOTS */
 
-  project.images.forEach((source, index) => {
-    const img = document.createElement("img");
+  if (gallery) {
+    gallery.replaceChildren();
+    project.images.forEach((source, index) => {
+      const img = document.createElement("img");
+      img.src = source;
+      img.alt = `${project.title} screenshot ${index + 1}`;
+      img.loading = "lazy";
+      img.onerror = () => img.remove();
+      gallery.appendChild(img);
+    });
+  }
 
-    img.src = source;
-    img.alt = `${project.title} screenshot ${index + 1}`;
-    img.loading = "lazy";
+  /* VIEW TOGGLE: only show it when there is a choice */
 
-    img.onerror = () => {
-      img.remove();
-    };
-
-    gallery.appendChild(img);
-  });
+  if (viewToggle) {
+    viewToggle.hidden = !(project.live && project.images.length);
+  }
+  showView(project.live ? "live" : "screens");
 
   dialog.showModal();
+}
+
+function closeProject() {
+  if (!dialog) return;
+  if (document.fullscreenElement) document.exitFullscreen();
+  dialog.close();
+}
+
+if (dialogFrame && liveWrap) {
+  dialogFrame.addEventListener("load", () => {
+    if (dialogFrame.src) liveWrap.classList.add("is-loaded");
+  });
+}
+
+if (viewToggle) {
+  viewToggle.addEventListener("click", event => {
+    const btn = event.target.closest("button[data-view]");
+    if (btn) showView(btn.dataset.view);
+  });
+}
+
+if (fullscreenButton && liveWrap) {
+  fullscreenButton.addEventListener("click", () => {
+    showView("live");
+    if (liveWrap.requestFullscreen) liveWrap.requestFullscreen();
+  });
 }
 
 /* ==========================================
@@ -277,16 +504,25 @@ function openProject(project) {
 
 const closeButton = document.getElementById("close-dialog");
 
-if (closeButton && dialog) {
-  closeButton.addEventListener("click", () => {
-    dialog.close();
-  });
+if (dialog) {
+  if (closeButton) closeButton.addEventListener("click", closeProject);
 
   dialog.addEventListener("click", event => {
-    if (event.target === dialog) {
-      dialog.close();
-    }
+    if (event.target === dialog) closeProject();
   });
+
+  /* Stop the embedded game/site when the popup closes */
+  dialog.addEventListener("close", () => {
+    if (dialogFrame) dialogFrame.removeAttribute("src");
+    if (liveWrap) liveWrap.classList.remove("is-loaded");
+  });
+}
+
+/* Open a project directly from a link, e.g. projects.html?project=zelda */
+const requested = new URLSearchParams(location.search).get("project");
+if (requested && grid) {
+  const match = projects.find(p => p.id === requested);
+  if (match) openProject(match);
 }
 
 /* ==========================================
@@ -299,6 +535,11 @@ console.log(
 );
 
 console.log("Projects loaded:", projects.length);
+
+/* ==========================================
+   CONTACT FORM
+   ========================================== */
+
 const contactForm = document.getElementById("contact-form");
 
 if (contactForm) {
