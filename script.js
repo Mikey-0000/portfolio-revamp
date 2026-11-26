@@ -385,7 +385,7 @@ function createProjectCard(project) {
 
   content.append(meta, heading, subtitle, tags);
   button.append(imageBox, content);
-  button.addEventListener("click", () => openProject(project));
+  button.addEventListener("click", () => openProject(project, button));
 
   article.appendChild(button);
 
@@ -469,11 +469,87 @@ function setLink(link, href) {
   if (href) link.href = href;
 }
 
-function openProject(project) {
+/* ==========================================
+   POPUP ANIMATION HELPERS
+   ========================================== */
+
+const reduceMotion = window.matchMedia
+  ? window.matchMedia("(prefers-reduced-motion: reduce)")
+  : { matches: false };
+
+let typeTimer = null;
+let closeTimer = null;
+
+/* Types the header filename out, like an editor tab opening */
+function typeFileName(el, text) {
+  clearInterval(typeTimer);
+
+  if (reduceMotion.matches) {
+    el.textContent = text;
+    return;
+  }
+
+  let i = 0;
+  el.textContent = "";
+  el.classList.add("typing");
+
+  typeTimer = setInterval(() => {
+    i += 1;
+    el.textContent = text.slice(0, i);
+
+    if (i >= text.length) {
+      clearInterval(typeTimer);
+      el.classList.remove("typing");
+    }
+  }, Math.max(14, Math.min(28, 420 / text.length)));
+}
+
+/* Numbers the visible pieces of the popup so CSS can stagger them */
+function setStagger() {
+  let i = 0;
+
+  dialog.querySelectorAll(".dialog-body > *").forEach(el => {
+    if (el.hidden) return;
+    el.style.setProperty("--i", i);
+    i += 1;
+  });
+
+  dialog.querySelectorAll(".summary dt, .summary dd").forEach((el, n) => {
+    el.style.setProperty("--j", Math.floor(n / 2));
+  });
+}
+
+/* Makes the popup grow out of the card that was clicked */
+function playOpenAnimation(originEl) {
+  dialog.classList.remove("is-closing", "is-opening");
+  dialog.style.transformOrigin = "";
+
+  if (reduceMotion.matches) return;
+
+  if (originEl) {
+    const card = originEl.getBoundingClientRect();
+    const box = dialog.getBoundingClientRect();
+    const clamp = (v, max) => Math.min(Math.max(v, 0), max);
+    /* keep the growth point inside the popup so it never swoops in from off-screen */
+    const x = clamp(card.left + card.width / 2 - box.left, box.width);
+    const y = clamp(card.top + card.height / 2 - box.top, box.height);
+    dialog.style.transformOrigin = `${Math.round(x)}px ${Math.round(y)}px`;
+  }
+
+  setStagger();
+  void dialog.offsetWidth; /* restart the CSS animation */
+  dialog.classList.add("is-opening");
+}
+
+function openProject(project, originEl) {
   if (!dialog) return;
 
-  document.getElementById("dialog-file").textContent =
-    `${project.id}.project`;
+  clearTimeout(closeTimer);
+
+  typeFileName(
+    document.getElementById("dialog-file"),
+    `${project.id}.project`
+  );
   document.getElementById("dialog-date").textContent = project.period;
   document.getElementById("dialog-title").textContent = project.title;
   document.getElementById("dialog-description").textContent =
@@ -535,13 +611,29 @@ function openProject(project) {
   }
   showView(project.live ? "live" : "screens");
 
-  dialog.showModal();
+  if (!dialog.open) dialog.showModal();
+  dialog.scrollTop = 0;
+  playOpenAnimation(originEl);
 }
 
 function closeProject() {
-  if (!dialog) return;
+  if (!dialog || !dialog.open) return;
   if (document.fullscreenElement) document.exitFullscreen();
-  dialog.close();
+
+  if (reduceMotion.matches) {
+    dialog.close();
+    return;
+  }
+
+  /* Play a short exit animation, then actually close */
+  if (dialog.classList.contains("is-closing")) return;
+  dialog.classList.remove("is-opening");
+  dialog.classList.add("is-closing");
+
+  closeTimer = setTimeout(() => {
+    dialog.classList.remove("is-closing");
+    dialog.close();
+  }, 190);
 }
 
 if (dialogFrame && liveWrap) {
@@ -575,6 +667,12 @@ if (dialog) {
 
   dialog.addEventListener("click", event => {
     if (event.target === dialog) closeProject();
+  });
+
+  /* Escape key: use the animated close too */
+  dialog.addEventListener("cancel", event => {
+    event.preventDefault();
+    closeProject();
   });
 
   /* Stop the embedded game/site when the popup closes */
