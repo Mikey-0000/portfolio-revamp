@@ -16,6 +16,34 @@ const PAGES = "https://mikey-0000.github.io";
 */
 const projects = [
   {
+    id: "source-code",
+    title: "SOURCE CODE",
+    filters: ["game", "current"],
+    period: "2026 — Personal project",
+    subtitle: "Psychological-horror programming platformer",
+    description:
+      "You are NULL, a faceless entity trapped in PROJECT EDEN, a simulation whose rules are written in code. Some jumps are impossible with the default rules, so you open the source editor and rewrite them: gravity, jump height, doors, lasers and the enemies that guard them. Every edit raises corruption, which glitches the world, reveals hidden memories and eventually sets a hunter on you. This vertical slice has two chapters, the WATCHER boss, an in-world EDEN OS, scoring ranks and accessibility options. Move with A/D or the arrow keys, jump with Space, open the editor with Tab and apply code with Ctrl+Enter.",
+    summary: {
+      what: "A platformer where you rewrite the game's own rules in code to get past impossible obstacles.",
+      how: "TypeScript with a sandboxed rule-language interpreter (no eval), procedural art and audio, built with esbuild and tested with unit and Playwright tests.",
+      why: "To turn programming itself into the core game mechanic."
+    },
+    tech: ["TypeScript", "Canvas", "Interpreter", "Playwright"],
+    live: `${PAGES}/source-code/`,
+    source: `${GITHUB}/source-code`,
+    images: [
+      "images/source-1.jpg?v=63dfd2d",
+      "images/source-2.jpg?v=63dfd2d",
+      "images/source-3.jpg?v=63dfd2d",
+      "images/source-4.jpg?v=63dfd2d",
+      "images/source-5.jpg?v=63dfd2d",
+      "images/source-6.jpg?v=63dfd2d",
+      "images/source-7.jpg?v=63dfd2d",
+      "images/source-8.jpg?v=63dfd2d"
+    ]
+  },
+
+  {
     id: "ashen-hollow",
     title: "Ashen Hollow",
     filters: ["game", "current"],

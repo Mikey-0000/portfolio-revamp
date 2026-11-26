@@ -52,11 +52,40 @@ HIDE_CANVAS = "(() => { const s = document.createElement('style'); s.textContent
 #   ("js", code)        run JavaScript in the page
 #   ("key", key)        press a key (Playwright key names)
 #   ("click", x, y)     click at viewport coordinates
+#   ("type", text)      type text with the keyboard
+#   ("waitfor", css)    wait until an element exists
 #   ("shot", n)         save images/<prefix>-<n>.jpg
 # Shot numbers set the order in the portfolio gallery (1 = first).
 # ------------------------------------------------------------------
 
 PROJECTS = {
+    "source-code": {
+        "repo": "source-code",
+        "prefix": "source",
+        "base": f"{PAGES}/source-code/",
+        # Uses the game's own test hooks (window.__eden), as its e2e test does
+        "steps": [
+            ("go", "?skipboot=1"), ("waitfor", ".title"), ("wait", 4500), ("shot", 1),
+            ("js", "[...document.querySelectorAll('.title *')].find(e => e.children.length === 0 && e.textContent.trim() === 'NEW GAME').click()"),
+            ("wait", 4500),
+            ("js", "(() => { const g = window.__eden.game; g.dialogue.open = false; g.dialogue.root.hidden = true; })()"),
+            ("wait", 1500), ("shot", 2),
+            ("js", "(() => { window.__eden.story.data.editorRevealed = true; window.__eden.game.openPanel(true); })()"),
+            ("wait", 800),
+            ("js", "(() => { const t = document.querySelector('.ce-ta'); t.focus(); t.select(); })()"),
+            ("type", "player.speed = 3.5;\nplayer.jumpHeight = 120;\nworld.gravity = 0.3;\n"),
+            ("wait", 700), ("shot", 3),
+            ("key", "Control+Enter"), ("wait", 250), ("shot", 4),
+            ("js", "(() => { const g = window.__eden.game; g.closePanel(); const w = g.world; w.exitOpen = true; w.x = w.level.exit[0] * 32 + 9; w.y = w.level.exit[1] * 32 + 4; })()"),
+            ("waitfor", ".card.complete"), ("wait", 1200), ("shot", 5),
+            ("js", "(async () => { const g = window.__eden.game; g.overlay.hidden = true; g.paused = false; window.__eden.story.data.editorRevealed = true; await g.loadLevel(3, false); g.dialogue.open = false; g.dialogue.root.hidden = true; })()"),
+            ("wait", 1800), ("shot", 6),
+            ("js", "(async () => { const g = window.__eden.game; g.overlay.hidden = true; g.paused = false; await g.loadLevel(5, false); g.dialogue.open = false; g.dialogue.root.hidden = true; })()"),
+            ("wait", 1800), ("shot", 7),
+            ("js", "(() => { window.__eden.game.hide(); window.__eden.enterRoot(); })()"),
+            ("wait", 1800), ("shot", 8),
+        ],
+    },
     "ashen-hollow": {
         "repo": "ashen-hollow",
         "prefix": "ashen",
@@ -208,6 +237,10 @@ def capture(page, project_id, cfg, staging):
             page.keyboard.press(step[1])
         elif kind == "click":
             page.mouse.click(step[1], step[2])
+        elif kind == "type":
+            page.keyboard.type(step[1])
+        elif kind == "waitfor":
+            page.wait_for_selector(step[1], timeout=20000)
         elif kind == "shot":
             n = step[1]
             tmp = staging / f"{prefix}-{n}.png"
