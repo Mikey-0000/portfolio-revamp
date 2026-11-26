@@ -167,22 +167,24 @@ const projects = [
     period: "2026 — Goldsmiths, University of London",
     subtitle: "Turn-based RPG made with p5.js",
     description:
-      "An original turn-based RPG built during my Computer Science studies at Goldsmiths, University of London. You climb three floors of the spire, explore each one, and defeat the Hollow Wisp, the Spire Reaper and the Abyssal King to claim the Spire Relic. Battles use attacks, Fire and Ice skills that exploit enemy weaknesses, elixirs and guarding. Move with WASD or the arrow keys, interact with E and select with Enter.",
+      "An original turn-based RPG built during my Computer Science studies at Goldsmiths, University of London. You climb three floors of the spire, explore each one, and defeat the Hollow Wisp, the Spire Reaper and the Abyssal King to claim the Spire Relic. Battles use attacks, Fire and Ice skills that exploit enemy weaknesses, elixirs and guarding. It has since been revamped with torch lighting, bloom, glowing UI panels, hit particles and screen shake. Move with WASD or the arrow keys, interact with E and select with Enter.",
     summary: {
       what: "A browser game with interactive storytelling and gameplay mechanics.",
-      how: "JavaScript with the p5.js creative-coding library.",
+      how: "JavaScript with p5.js, plus a custom effects layer for lighting, bloom and screen shake.",
       why: "To learn game loops, input handling and drawing."
     },
-    tech: ["JavaScript", "p5.js"],
+    tech: ["JavaScript", "p5.js", "Canvas FX"],
     live: `${PAGES}/hollow-spire/`,
     source: `${GITHUB}/hollow-spire`,
     images: [
-      "images/hollow-1.jpg?v=2",
-      "images/hollow-2.jpg?v=2",
-      "images/hollow-3.jpg?v=2",
-      "images/hollow-4.jpg?v=2",
-      "images/hollow-5.jpg?v=2",
-      "images/hollow-6.jpg?v=2"
+      "images/hollow-1.jpg?v=3",
+      "images/hollow-2.jpg?v=3",
+      "images/hollow-3.jpg?v=3",
+      "images/hollow-4.jpg?v=3",
+      "images/hollow-5.jpg?v=3",
+      "images/hollow-6.jpg?v=3",
+      "images/hollow-7.jpg?v=3",
+      "images/hollow-8.jpg?v=3"
     ]
   }
 ];
