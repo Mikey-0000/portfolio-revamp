@@ -23,10 +23,20 @@ const projects = [
     subtitle: "Dark-fantasy pixel-art action RPG",
     description:
       "A 2D action RPG of witchcraft, forgotten gods and a living village, built on a custom Canvas 2D engine with no dependencies. It has a three-hit combo system, dodges with perfect-dodge timing, a spellbook and skill tree, synthesised audio, dynamic lighting and weather, NPC schedules, and save/load. Click inside the game to start audio. Move with WASD, attack with J or left-click, dodge with Space, cast with L or right-click.",
+    summary: {
+      what: "A full action RPG: combat, magic, NPC routines, weather and saves.",
+      how: "Plain JavaScript on Canvas 2D with Web Audio sound. No libraries or build step.",
+      why: "To learn how game engines work by building one from scratch."
+    },
     tech: ["JavaScript", "Canvas 2D", "Game Engine", "Web Audio"],
     live: `${PAGES}/ashen-hollow/`,
     source: `${GITHUB}/ashen-hollow`,
-    images: []
+    images: [
+      "images/ashen-1.jpg",
+      "images/ashen-2.jpg",
+      "images/ashen-3.jpg",
+      "images/ashen-4.jpg"
+    ]
   },
 
   {
@@ -37,15 +47,19 @@ const projects = [
     subtitle: "Interactive arcade-style archive of video game history",
     description:
       "An interactive layer over my original Historical Gaming Map. You can walk the star map with the arrow keys and collect data bits, scrub through gaming history from 1952 to today, and play genre mini-games: circuit puzzles, platform jumps, a duel against an AI that learns your habits, a lane runner, a sandbox builder and a survival game. It also has versus-mode radar charts, 19 achievements and a hidden Konami code.",
+    summary: {
+      what: "Mini-games, a history timeline, achievements and search on top of my original map.",
+      how: "Two add-on files (enhance.js and enhance.css) on every page, with progress saved in localStorage.",
+      why: "To turn a static archive into something you play, without rewriting the original."
+    },
     tech: ["HTML", "CSS", "JavaScript", "Pixel Art"],
     live: `${PAGES}/Gaming-Map-Revamp/`,
     source: `${GITHUB}/Gaming-Map-Revamp`,
     images: [
-      "images/gaming-1.webp",
-      "images/gaming-2.webp",
-      "images/gaming-3.webp",
-      "images/gaming-4.webp",
-      "images/gaming-5.webp"
+      "images/gaming-1.jpg",
+      "images/gaming-2.jpg",
+      "images/gaming-3.jpg",
+      "images/gaming-4.jpg"
     ]
   },
 
@@ -57,10 +71,21 @@ const projects = [
     subtitle: "Interactive fan site across P3, P4 and P5",
     description:
       "A stylised, interactive fan site with separate themed sections for Persona 3, 4 and 5. Each section has its own visual identity, transitions and interactions. The site is fully static and deployable to GitHub Pages or Cloudflare.",
+    summary: {
+      what: "Three themed sections: a midnight clock, a TV case board, calling cards and a fusion room.",
+      how: "HTML, CSS animation and vanilla JavaScript, all static.",
+      why: "To practise giving each section its own visual identity and motion."
+    },
     tech: ["HTML", "CSS", "JavaScript", "Motion Design"],
     live: `${PAGES}/Persona/`,
     source: `${GITHUB}/Persona`,
-    images: []
+    images: [
+      "images/persona-1.jpg",
+      "images/persona-2.jpg",
+      "images/persona-3.jpg",
+      "images/persona-4.jpg",
+      "images/persona-5.jpg"
+    ]
   },
 
   {
@@ -71,10 +96,19 @@ const projects = [
     subtitle: "Interactive Zelda encyclopedia",
     description:
       "A fan encyclopedia centred on Ocarina of Time. Navi follows your cursor and gives hints, and vines and parallax trees react to scrolling. You can cut grass for rupees, spend them in an inventory (press I), and play six ocarina songs that change the world: day and night, storms, hearts and falling leaves. It also has a Gold Skulltula hunt, trivia and a franchise timeline, and progress is saved in the browser.",
+    summary: {
+      what: "An encyclopedia with game mechanics: Navi, rupees, an inventory and a playable ocarina.",
+      how: "Vanilla JavaScript with keyboard input and localStorage saves. A Python script generates the pages.",
+      why: "To make reading about a game feel like playing it."
+    },
     tech: ["HTML", "CSS", "JavaScript", "localStorage"],
     live: `${PAGES}/Zelda/public/`,
     source: `${GITHUB}/Zelda`,
-    images: []
+    images: [
+      "images/zelda-1.jpg",
+      "images/zelda-2.jpg",
+      "images/zelda-3.jpg"
+    ]
   },
 
   {
@@ -86,16 +120,19 @@ const projects = [
     subtitle: "Interactive music and artist website",
     description:
       "An interactive music-inspired website first developed during my Computer Science Foundation Year at City, University of London, and since revamped. It is built around bubble-style chat messages and explores creative frontend development, artist presentation and user interface design.",
+    summary: {
+      what: "A chat-style fan site with a rhythm game, a photo booth and song stories.",
+      how: "Vanilla JavaScript, with the browser's canvas and audio APIs for the game and photo booth.",
+      why: "To experiment with playful UI and interaction beyond static pages."
+    },
     tech: ["HTML", "CSS", "JavaScript"],
     live: `${PAGES}/Newjeans/`,
     source: `${GITHUB}/Newjeans`,
     images: [
-      "images/newjeans-1.webp",
-      "images/newjeans-2.webp",
-      "images/newjeans-3.webp",
-      "images/newjeans-4.webp",
-      "images/newjeans-5.webp",
-      "images/newjeans-6.webp"
+      "images/newjeans-1.jpg",
+      "images/newjeans-2.jpg",
+      "images/newjeans-3.jpg",
+      "images/newjeans-4.jpg"
     ]
   },
 
@@ -108,15 +145,18 @@ const projects = [
     subtitle: "Travel and cultural discovery website",
     description:
       "A travel and cultural discovery website first built in my Foundation Year and redesigned in 2026 with an editorial look. It covers responsive design, destination pages and visual storytelling, and has a sign-up flow backed by a small Cloudflare Worker.",
+    summary: {
+      what: "An editorial redesign with a saved \"My Trail\", seasonal themes and a sign-up form.",
+      how: "Responsive HTML and CSS with vanilla JavaScript. A Cloudflare Worker stores the sign-ups.",
+      why: "To revisit my Foundation Year site with stronger design and a real backend."
+    },
     tech: ["HTML", "CSS", "JavaScript", "Cloudflare Workers"],
     live: `${PAGES}/UK-Heritage-Trails-2026/`,
     source: `${GITHUB}/UK-Heritage-Trails-2026`,
     images: [
-      "images/heritage-1.webp",
-      "images/heritage-2.webp",
-      "images/heritage-3.webp",
-      "images/heritage-4.webp",
-      "images/heritage-5.webp"
+      "images/heritage-1.jpg",
+      "images/heritage-2.jpg",
+      "images/heritage-3.jpg"
     ]
   },
 
@@ -128,6 +168,11 @@ const projects = [
     subtitle: "Interactive browser game made with p5.js",
     description:
       "An interactive browser-based game developed during my Computer Science undergraduate studies at Goldsmiths, University of London. It explores interactive storytelling, gameplay mechanics, visual design and frontend programming.",
+    summary: {
+      what: "A browser game with interactive storytelling and gameplay mechanics.",
+      how: "JavaScript with the p5.js creative-coding library.",
+      why: "To learn game loops, input handling and drawing."
+    },
     tech: ["JavaScript", "p5.js"],
     images: [
       "images/hollow-1.webp",
@@ -429,6 +474,23 @@ function openProject(project) {
   document.getElementById("dialog-title").textContent = project.title;
   document.getElementById("dialog-description").textContent =
     project.description;
+
+  /* WHAT / HOW / WHY */
+
+  const summary = document.getElementById("dialog-summary");
+  if (summary) {
+    summary.replaceChildren();
+    summary.hidden = !project.summary;
+    if (project.summary) {
+      ["what", "how", "why"].forEach(key => {
+        const term = document.createElement("dt");
+        term.textContent = key;
+        const detail = document.createElement("dd");
+        detail.textContent = project.summary[key];
+        summary.append(term, detail);
+      });
+    }
+  }
   document.getElementById("dialog-tags")
     .replaceChildren(...makeTags(project.tech));
 

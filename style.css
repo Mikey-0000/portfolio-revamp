@@ -890,3 +890,49 @@ footer {
     transition: none;
   }
 }
+
+/* WHAT / HOW / WHY SUMMARY */
+
+.summary {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 16px;
+  margin: 18px 0 20px;
+  padding: 14px 18px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--green);
+  border-radius: 6px;
+}
+
+.summary[hidden] {
+  display: none;
+}
+
+.summary dt {
+  color: var(--purple);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding-top: 3px;
+}
+
+.summary dt::after {
+  content: ":";
+}
+
+.summary dd {
+  margin: 0;
+  color: var(--text);
+}
+
+@media (max-width: 600px) {
+  .summary {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .summary dd {
+    margin-bottom: 8px;
+  }
+}
