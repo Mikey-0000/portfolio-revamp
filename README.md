@@ -1,6 +1,6 @@
 # Portfolio Revamp
 
-A revamp of my [developer portfolio](https://github.com/mikey101101/Portfolio). The projects section now embeds my recent projects live:
+A revamp of my [developer portfolio](https://github.com/Mikey-0000/Portfolio). The projects section now embeds my recent projects live:
 
 - Each card shows a **live preview** of the deployed site. Previews only load while the card is on screen.
 - Click a card to **play or use the project inside the portfolio**, full screen if you like. You can also switch to screenshots, open the live site, or view the source on GitHub.

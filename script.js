@@ -3,8 +3,8 @@
    PROJECT DATA & INTERACTIONS
    ========================================== */
 
-const GITHUB = "https://github.com/mikey101101";
-const PAGES = "https://mikey101101.github.io";
+const GITHUB = "https://github.com/Mikey-0000";
+const PAGES = "https://mikey-0000.github.io";
 
 /*
   Each project can have:
