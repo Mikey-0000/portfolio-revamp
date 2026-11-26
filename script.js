@@ -177,14 +177,14 @@ const projects = [
     live: `${PAGES}/hollow-spire/`,
     source: `${GITHUB}/hollow-spire`,
     images: [
-      "images/hollow-1.jpg?v=3",
-      "images/hollow-2.jpg?v=3",
-      "images/hollow-3.jpg?v=3",
-      "images/hollow-4.jpg?v=3",
-      "images/hollow-5.jpg?v=3",
-      "images/hollow-6.jpg?v=3",
-      "images/hollow-7.jpg?v=3",
-      "images/hollow-8.jpg?v=3"
+      "images/hollow-1.jpg?v=4",
+      "images/hollow-2.jpg?v=4",
+      "images/hollow-3.jpg?v=4",
+      "images/hollow-4.jpg?v=4",
+      "images/hollow-5.jpg?v=4",
+      "images/hollow-6.jpg?v=4",
+      "images/hollow-7.jpg?v=4",
+      "images/hollow-8.jpg?v=4"
     ]
   }
 ];
