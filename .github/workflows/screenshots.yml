@@ -1,0 +1,72 @@
+name: Update project screenshots
+
+# Checks every hour whether any project repo has a new commit, and if so
+# retakes that project's screenshots from its live site.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+    inputs:
+      projects:
+        description: "Project ids to retake (space separated), or 'all'. Leave empty to only do changed ones."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: screenshots
+  cancel-in-progress: false
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check which projects changed
+        id: check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_PROJECTS: ${{ github.event.inputs.projects }}
+        run: |
+          if [ "$INPUT_PROJECTS" = "all" ]; then
+            python tools/screenshots.py --check --all
+          elif [ -n "$INPUT_PROJECTS" ]; then
+            python tools/screenshots.py --check $INPUT_PROJECTS
+          else
+            python tools/screenshots.py --check
+          fi
+
+      - name: Install headless browser
+        if: steps.check.outputs.changed != ''
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-noto-color-emoji
+          pip install -q playwright pillow
+          python -m playwright install --with-deps chromium
+
+      - name: Take screenshots
+        if: steps.check.outputs.changed != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/screenshots.py ${{ steps.check.outputs.changed }}
+
+      - name: Commit new screenshots
+        if: always() && steps.check.outputs.changed != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images script.js index.html projects.html contact.html tools/screenshot-state.json
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit."
+          else
+            git commit -m "Update screenshots: ${{ steps.check.outputs.changed }}"
+            git push
+          fi
