@@ -32,10 +32,10 @@ const projects = [
     live: `${PAGES}/ashen-hollow/`,
     source: `${GITHUB}/ashen-hollow`,
     images: [
-      "images/ashen-1.jpg",
-      "images/ashen-2.jpg",
-      "images/ashen-3.jpg",
-      "images/ashen-4.jpg"
+      "images/ashen-1.jpg?v=e518fae",
+      "images/ashen-2.jpg?v=e518fae",
+      "images/ashen-3.jpg?v=e518fae",
+      "images/ashen-4.jpg?v=e518fae"
     ]
   },
 
@@ -56,10 +56,10 @@ const projects = [
     live: `${PAGES}/Gaming-Map-Revamp/`,
     source: `${GITHUB}/Gaming-Map-Revamp`,
     images: [
-      "images/gaming-1.jpg",
-      "images/gaming-2.jpg",
-      "images/gaming-3.jpg",
-      "images/gaming-4.jpg"
+      "images/gaming-1.jpg?v=a5693c8",
+      "images/gaming-2.jpg?v=a5693c8",
+      "images/gaming-3.jpg?v=a5693c8",
+      "images/gaming-4.jpg?v=a5693c8"
     ]
   },
 
@@ -80,11 +80,12 @@ const projects = [
     live: `${PAGES}/Persona/`,
     source: `${GITHUB}/Persona`,
     images: [
-      "images/persona-1.jpg",
-      "images/persona-2.jpg",
-      "images/persona-3.jpg",
-      "images/persona-4.jpg",
-      "images/persona-5.jpg"
+      "images/persona-1.jpg?v=52b4425",
+      "images/persona-2.jpg?v=52b4425",
+      "images/persona-3.jpg?v=52b4425",
+      "images/persona-4.jpg?v=52b4425",
+      "images/persona-5.jpg?v=52b4425",
+      "images/persona-6.jpg?v=52b4425"
     ]
   },
 
@@ -105,9 +106,9 @@ const projects = [
     live: `${PAGES}/Zelda/public/`,
     source: `${GITHUB}/Zelda`,
     images: [
-      "images/zelda-1.jpg",
-      "images/zelda-2.jpg",
-      "images/zelda-3.jpg"
+      "images/zelda-1.jpg?v=141e65a",
+      "images/zelda-2.jpg?v=141e65a",
+      "images/zelda-3.jpg?v=141e65a"
     ]
   },
 
@@ -129,10 +130,10 @@ const projects = [
     live: `${PAGES}/Newjeans/`,
     source: `${GITHUB}/Newjeans`,
     images: [
-      "images/newjeans-1.jpg",
-      "images/newjeans-2.jpg",
-      "images/newjeans-3.jpg",
-      "images/newjeans-4.jpg"
+      "images/newjeans-1.jpg?v=28b0a77",
+      "images/newjeans-2.jpg?v=28b0a77",
+      "images/newjeans-3.jpg?v=28b0a77",
+      "images/newjeans-4.jpg?v=28b0a77"
     ]
   },
 
@@ -154,9 +155,9 @@ const projects = [
     live: `${PAGES}/UK-Heritage-Trails-2026/`,
     source: `${GITHUB}/UK-Heritage-Trails-2026`,
     images: [
-      "images/heritage-1.jpg",
-      "images/heritage-2.jpg",
-      "images/heritage-3.jpg"
+      "images/heritage-1.jpg?v=8d8415b",
+      "images/heritage-2.jpg?v=8d8415b",
+      "images/heritage-3.jpg?v=8d8415b"
     ]
   },
 
@@ -177,14 +178,14 @@ const projects = [
     live: `${PAGES}/hollow-spire/`,
     source: `${GITHUB}/hollow-spire`,
     images: [
-      "images/hollow-1.jpg?v=4",
-      "images/hollow-2.jpg?v=4",
-      "images/hollow-3.jpg?v=4",
-      "images/hollow-4.jpg?v=4",
-      "images/hollow-5.jpg?v=4",
-      "images/hollow-6.jpg?v=4",
-      "images/hollow-7.jpg?v=4",
-      "images/hollow-8.jpg?v=4"
+      "images/hollow-1.jpg?v=758e3f9",
+      "images/hollow-2.jpg?v=758e3f9",
+      "images/hollow-3.jpg?v=758e3f9",
+      "images/hollow-4.jpg?v=758e3f9",
+      "images/hollow-5.jpg?v=758e3f9",
+      "images/hollow-6.jpg?v=758e3f9",
+      "images/hollow-7.jpg?v=758e3f9",
+      "images/hollow-8.jpg?v=758e3f9"
     ]
   }
 ];
