@@ -131,7 +131,7 @@ const projects = [
       why: "To make reading about a game feel like playing it."
     },
     tech: ["HTML", "CSS", "JavaScript", "localStorage"],
-    live: `${PAGES}/Zelda/public/`,
+    live: `${PAGES}/Zelda/`,
     source: `${GITHUB}/Zelda`,
     images: [
       "images/zelda-1.jpg?v=141e65a",

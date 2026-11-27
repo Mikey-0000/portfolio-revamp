@@ -131,7 +131,7 @@ PROJECTS = {
     "zelda": {
         "repo": "Zelda",
         "prefix": "zelda",
-        "base": f"{PAGES}/Zelda/public/",
+        "base": f"{PAGES}/Zelda/",
         "steps": [
             ("go", ""), ("wait", 5000), ("shot", 1),
             ("go", "Link.html"), ("wait", 5000), ("shot", 2),
