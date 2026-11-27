@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contact page for my Computer Science portfolio.">
-  <title>Contact | My Portfolio</title>
-  <link rel="stylesheet" href="style.css?v=202611271132">
-  <script src="script.js?v=202611271132" defer></script>
+  <title>Contact | Michael Dedeji</title>
+  <link rel="stylesheet" href="style.css?v=202611271137">
+  <script src="script.js?v=202611271137" defer></script>
 </head>
 
 <body>
@@ -41,53 +41,30 @@
           <h2>Get in <span>Touch</span></h2>
 
           <p class="intro">
-            Interested in collaborating or discussing a project?
-            Feel free to send me a message.
+            Interested in collaborating, an internship or discussing a
+            project? Get in touch directly.
           </p>
 
-          <form id="contact-form">
-            <div class="form-field">
-              <label for="contact-name">Name</label>
-              <input
-                type="text"
-                id="contact-name"
-                name="name"
-                autocomplete="name"
-                required
-              >
-            </div>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-label">email</span>
+              <a href="mailto:michaeldedeji@gmail.com">michaeldedeji@gmail.com</a>
+            </li>
+            <li>
+              <span class="contact-label">phone</span>
+              <a href="tel:+447952646073">07952 646073</a>
+            </li>
+            <li>
+              <span class="contact-label">github</span>
+              <a href="https://github.com/Mikey-0000" target="_blank" rel="noopener">github.com/Mikey-0000 ↗</a>
+            </li>
+          </ul>
 
-            <div class="form-field">
-              <label for="contact-email">Email</label>
-              <input
-                type="email"
-                id="contact-email"
-                name="email"
-                autocomplete="email"
-                required
-              >
-            </div>
-
-            <div class="form-field">
-              <label for="contact-message">Message</label>
-              <textarea
-                id="contact-message"
-                name="message"
-                rows="6"
-                required
-              ></textarea>
-            </div>
-
-            <button type="submit" class="button primary">
-              ./send-message ↗
-            </button>
-
-            <p id="form-status" role="status" aria-live="polite"></p>
-          </form>
+          <a class="button primary" href="mailto:michaeldedeji@gmail.com">./send-email ↗</a>
         </section>
 
         <footer>
-          <span>© 2026 · Developer Portfolio</span>
+          <span>© 2026 · Michael Dedeji</span>
           <span>Built with HTML, CSS & JavaScript</span>
         </footer>
       </div>

@@ -26,7 +26,8 @@ const projects = [
     summary: {
       what: "A platformer where you rewrite the game's own rules in code to get past impossible obstacles.",
       how: "TypeScript with a sandboxed rule-language interpreter (no eval), procedural art and audio, built with esbuild and tested with unit and Playwright tests.",
-      why: "To turn programming itself into the core game mechanic."
+      why: "To turn programming itself into the core game mechanic.",
+      part: "The idea and direction for the game, plus playtesting and feedback on each version. The code was written with Claude (AI)."
     },
     tech: ["TypeScript", "Canvas", "Interpreter", "Playwright"],
     live: `${PAGES}/source-code/`,
@@ -54,7 +55,8 @@ const projects = [
     summary: {
       what: "A full action RPG: combat, magic, NPC routines, weather and saves.",
       how: "Plain JavaScript on Canvas 2D with Web Audio sound. No libraries or build step.",
-      why: "To learn how game engines work by building one from scratch."
+      why: "To learn how game engines work by building one from scratch.",
+      part: "The idea, setting and direction, plus playtesting and feedback on each version. The code was written with Claude (AI)."
     },
     tech: ["JavaScript", "Canvas 2D", "Game Engine", "Web Audio"],
     live: `${PAGES}/ashen-hollow/`,
@@ -78,7 +80,8 @@ const projects = [
     summary: {
       what: "Mini-games, a history timeline, achievements and search on top of my original map.",
       how: "Two add-on files (enhance.js and enhance.css) on every page, with progress saved in localStorage.",
-      why: "To turn a static archive into something you play, without rewriting the original."
+      why: "To turn a static archive into something you play, without rewriting the original.",
+      part: "I built the original Historical Gaming Map myself for coursework (linked below). The interactive revamp layer was written with Claude (AI) from my direction."
     },
     note: {
       text: "This started as my Goldsmiths coursework, the original Historical Gaming Map. The revamp adds a new interactive layer on top of it.",
@@ -107,7 +110,8 @@ const projects = [
     summary: {
       what: "Three themed sections: a midnight clock, a TV case board, calling cards and a fusion room.",
       how: "HTML, CSS animation and vanilla JavaScript, all static.",
-      why: "To practise giving each section its own visual identity and motion."
+      why: "To practise giving each section its own visual identity and motion.",
+      part: "The idea, the choice of content and the direction for each section, plus testing. The code was written with Claude (AI)."
     },
     note: {
       text: "Unofficial fan project. Persona and its characters, artwork and music belong to their respective owners, and this site isn't affiliated with or endorsed by them."
@@ -136,7 +140,8 @@ const projects = [
     summary: {
       what: "An encyclopedia with game mechanics: Navi, rupees, an inventory and a playable ocarina.",
       how: "Vanilla JavaScript with keyboard input and localStorage saves. A Python script generates the pages.",
-      why: "To make reading about a game feel like playing it."
+      why: "To make reading about a game feel like playing it.",
+      part: "The idea, the choice of content and the direction, plus testing. The code was written with Claude (AI)."
     },
     note: {
       text: "Unofficial fan project. The Legend of Zelda and its characters and artwork belong to their respective owners, and this site isn't affiliated with or endorsed by them."
@@ -163,7 +168,8 @@ const projects = [
     summary: {
       what: "A chat-style fan site with a rhythm game, a photo booth and song stories.",
       how: "Vanilla JavaScript, with the browser's canvas and audio APIs for the game and photo booth.",
-      why: "To experiment with playful UI and interaction beyond static pages."
+      why: "To experiment with playful UI and interaction beyond static pages.",
+      part: "I built the original site myself during my Foundation Year, and most of its history is my own work. Later features were added with Claude (AI)."
     },
     note: {
       text: "Unofficial fan project. NewJeans and their music and photos belong to their respective owners, and this site isn't affiliated with or endorsed by them."
@@ -190,7 +196,8 @@ const projects = [
     summary: {
       what: "An editorial redesign with a saved \"My Trail\", seasonal themes and a sign-up form.",
       how: "Responsive HTML and CSS with vanilla JavaScript. A Cloudflare Worker stores the sign-ups.",
-      why: "To revisit my Foundation Year site with stronger design and a real backend."
+      why: "To revisit my Foundation Year site with stronger design and a real backend.",
+      part: "I built the original for my Front-End Web Development module. The 2026 redesign was written with Claude (AI) from my direction."
     },
     note: {
       text: "This started as my project for the Front-End Web Development module at City, University of London in 2025. The version shown here is a later revamp."
@@ -216,7 +223,8 @@ const projects = [
     summary: {
       what: "A browser game with interactive storytelling and gameplay mechanics.",
       how: "JavaScript with p5.js, plus a custom effects layer for lighting, bloom and screen shake.",
-      why: "To learn game loops, input handling and drawing."
+      why: "To learn game loops, input handling and drawing.",
+      part: "I wrote the original game myself for coursework (playable below). The visual revamp was written with Claude (AI)."
     },
     note: {
       text: "This started as my Goldsmiths coursework submission. The version shown here has since been revamped with new visuals, and the original submission is still playable, unchanged.",
@@ -642,9 +650,10 @@ function openProject(project, originEl) {
     summary.replaceChildren();
     summary.hidden = !project.summary;
     if (project.summary) {
-      ["what", "how", "why"].forEach(key => {
+      ["what", "how", "why", "part"].forEach(key => {
+        if (!project.summary[key]) return;
         const term = document.createElement("dt");
-        term.textContent = key;
+        term.textContent = key === "part" ? "my part" : key;
         const detail = document.createElement("dd");
         detail.textContent = project.summary[key];
         summary.append(term, detail);

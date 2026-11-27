@@ -1082,3 +1082,55 @@ footer {
 .project-note .note-link:focus-visible {
   text-decoration: underline;
 }
+
+/* Contact details */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 32px;
+  display: grid;
+  gap: 12px;
+  max-width: 560px;
+}
+
+.contact-list li {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.contact-label {
+  color: var(--purple);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.contact-list a {
+  color: var(--blue);
+  overflow-wrap: anywhere;
+}
+
+.contact-list a:hover,
+.contact-list a:focus-visible {
+  text-decoration: underline;
+}
+
+/* "How I build" heading in About */
+.how-i-build {
+  color: var(--green);
+  font-size: 14px;
+  margin: 24px 0 8px;
+}
+
+@media (max-width: 600px) {
+  .contact-list li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
