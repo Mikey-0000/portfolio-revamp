@@ -134,9 +134,9 @@ const projects = [
     live: `${PAGES}/Zelda/`,
     source: `${GITHUB}/Zelda`,
     images: [
-      "images/zelda-1.jpg?v=141e65a",
-      "images/zelda-2.jpg?v=141e65a",
-      "images/zelda-3.jpg?v=141e65a"
+      "images/zelda-1.jpg?v=64c3ab3",
+      "images/zelda-2.jpg?v=64c3ab3",
+      "images/zelda-3.jpg?v=64c3ab3"
     ]
   },
 
