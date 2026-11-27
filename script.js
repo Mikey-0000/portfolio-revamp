@@ -268,28 +268,58 @@ function makeLink(href, text, className) {
 /* ==========================================
    LIVE CARD PREVIEWS
    A scaled-down, non-interactive copy of each live site.
-   Only loaded while the card is on screen, so off-screen
-   games are not running in the background.
+   The frame is created when the card scrolls into view and
+   removed completely when it leaves, so only the cards on
+   screen are running. (Just clearing an iframe's src does
+   not unload the page inside it.)
+
+   Phones and touch devices get screenshots on the cards
+   instead: several live games at once is too much memory
+   for a phone browser. The live demo still opens in the
+   popup, one project at a time.
    ========================================== */
+
+const LIGHT_PREVIEWS = window.matchMedia
+  ? window.matchMedia("(max-width: 800px), (hover: none)").matches
+  : false;
+
+function mountFrame(box) {
+  if (box.querySelector("iframe")) return;
+
+  const frame = document.createElement("iframe");
+  frame.title = `${box.dataset.title} live preview`;
+  frame.width = PREVIEW_WIDTH;
+  frame.height = PREVIEW_HEIGHT;
+  frame.tabIndex = -1;
+  frame.setAttribute("aria-hidden", "true");
+  frame.setAttribute("sandbox", "allow-scripts allow-same-origin");
+  frame.addEventListener("load", () => box.classList.add("is-loaded"));
+  frame.src = box.dataset.live;
+
+  box.insertBefore(frame, box.querySelector(".live-badge"));
+  scalePreview(box);
+}
+
+function unmountFrame(box) {
+  const frame = box.querySelector("iframe");
+  if (!frame) return;
+  box.classList.remove("is-loaded");
+  frame.remove();
+}
 
 const previewObserver =
   "IntersectionObserver" in window
     ? new IntersectionObserver(
         entries => {
           entries.forEach(entry => {
-            const box = entry.target;
-            const frame = box.querySelector("iframe");
-            if (!frame) return;
-
             if (entry.isIntersecting) {
-              if (!frame.src) frame.src = box.dataset.live;
-            } else if (frame.src) {
-              frame.removeAttribute("src");
-              box.classList.remove("is-loaded");
+              mountFrame(entry.target);
+            } else {
+              unmountFrame(entry.target);
             }
           });
         },
-        { rootMargin: "200px" }
+        { rootMargin: "100px" }
       )
     : null;
 
@@ -308,23 +338,6 @@ function scalePreview(box) {
 }
 
 function createPreview(project, imageBox) {
-  imageBox.classList.add("has-live");
-  imageBox.dataset.live = project.live;
-
-  const frame = document.createElement("iframe");
-  frame.title = `${project.title} live preview`;
-  frame.width = PREVIEW_WIDTH;
-  frame.height = PREVIEW_HEIGHT;
-  frame.tabIndex = -1;
-  frame.setAttribute("aria-hidden", "true");
-  frame.setAttribute("loading", "lazy");
-  frame.setAttribute("sandbox", "allow-scripts allow-same-origin");
-  frame.addEventListener("load", () => {
-    if (frame.src) imageBox.classList.add("is-loaded");
-  });
-
-  imageBox.appendChild(frame);
-
   const badge = document.createElement("span");
   badge.className = "live-badge";
   badge.textContent = "● LIVE";
@@ -335,14 +348,15 @@ function createPreview(project, imageBox) {
 
   imageBox.append(badge, play);
 
-  if (previewObserver) {
-    previewObserver.observe(imageBox);
-  } else {
-    frame.src = project.live;
-  }
+  /* Phones: keep the screenshot, no live frame on the card */
+  if (LIGHT_PREVIEWS || !previewObserver) return;
 
+  imageBox.classList.add("has-live");
+  imageBox.dataset.live = project.live;
+  imageBox.dataset.title = project.title;
+
+  previewObserver.observe(imageBox);
   if (resizeObserver) resizeObserver.observe(imageBox);
-  requestAnimationFrame(() => scalePreview(imageBox));
 }
 
 /* ==========================================
@@ -615,7 +629,7 @@ function openProject(project, originEl) {
       dialogFrame.title = `${project.title} live demo`;
       dialogFrame.src = project.live;
     } else {
-      dialogFrame.removeAttribute("src");
+      dialogFrame.src = "about:blank";
     }
   }
 
@@ -667,7 +681,9 @@ function closeProject() {
 
 if (dialogFrame && liveWrap) {
   dialogFrame.addEventListener("load", () => {
-    if (dialogFrame.src) liveWrap.classList.add("is-loaded");
+    if (dialogFrame.src && dialogFrame.src !== "about:blank") {
+      liveWrap.classList.add("is-loaded");
+    }
   });
 }
 
@@ -706,7 +722,7 @@ if (dialog) {
 
   /* Stop the embedded game/site when the popup closes */
   dialog.addEventListener("close", () => {
-    if (dialogFrame) dialogFrame.removeAttribute("src");
+    if (dialogFrame) dialogFrame.src = "about:blank";
     if (liveWrap) liveWrap.classList.remove("is-loaded");
   });
 }
