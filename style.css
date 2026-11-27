@@ -1134,3 +1134,28 @@ footer {
     gap: 4px;
   }
 }
+
+/* Contact buttons */
+.contact-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.contact-actions .button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.copy-status {
+  color: var(--green);
+  min-height: 1.75em;
+  margin-top: 14px;
+}
+
+button.button {
+  background: transparent;
+  color: var(--text);
+  line-height: inherit;
+}

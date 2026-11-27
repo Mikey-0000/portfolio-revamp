@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contact page for my Computer Science portfolio.">
   <title>Contact | Michael Dedeji</title>
-  <link rel="stylesheet" href="style.css?v=202611271141">
-  <script src="script.js?v=202611271141" defer></script>
+  <link rel="stylesheet" href="style.css?v=202611271144">
+  <script src="script.js?v=202611271144" defer></script>
 </head>
 
 <body>
@@ -60,7 +60,21 @@
             </li>
           </ul>
 
-          <a class="button primary" href="mailto:michaeldedeji@gmail.com">./send-email ↗</a>
+          <div class="contact-actions">
+            <a
+              class="button primary"
+              href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=michaeldedeji@gmail.com"
+              target="_blank"
+              rel="noopener">./open-in-gmail ↗</a>
+
+            <button type="button" class="button" id="copy-email" data-email="michaeldedeji@gmail.com">
+              ./copy-email
+            </button>
+
+            <a class="button" href="mailto:michaeldedeji@gmail.com">./mail-app ↗</a>
+          </div>
+
+          <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
         </section>
 
         <footer>

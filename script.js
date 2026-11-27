@@ -792,19 +792,44 @@ console.log(
 console.log("Projects loaded:", projects.length);
 
 /* ==========================================
-   CONTACT FORM
+   CONTACT: COPY EMAIL
+   Email links do nothing on computers with no mail app set
+   up, so visitors can also copy the address or open Gmail.
    ========================================== */
 
-const contactForm = document.getElementById("contact-form");
+const copyEmail = document.getElementById("copy-email");
+const copyStatus = document.getElementById("copy-status");
 
-if (contactForm) {
-  contactForm.addEventListener("submit", function(event) {
-    event.preventDefault();
+function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    return navigator.clipboard.writeText(text);
+  }
+  /* Fallback for older browsers */
+  return new Promise((resolve, reject) => {
+    const field = document.createElement("textarea");
+    field.value = text;
+    field.setAttribute("readonly", "");
+    field.style.position = "fixed";
+    field.style.opacity = "0";
+    document.body.appendChild(field);
+    field.select();
+    const ok = document.execCommand("copy");
+    field.remove();
+    ok ? resolve() : reject(new Error("copy failed"));
+  });
+}
 
-    const message = document.getElementById("form-status");
-
-    if (message) {
-      message.textContent = "Message validated successfully! Message will be sent by 2030.";
-    }
+if (copyEmail) {
+  copyEmail.addEventListener("click", () => {
+    const email = copyEmail.dataset.email;
+    copyText(email)
+      .then(() => {
+        copyStatus.textContent = `✓ Copied ${email} to your clipboard`;
+        copyEmail.textContent = "./copied ✓";
+      })
+      .catch(() => {
+        copyStatus.textContent = `Copy this address: ${email}`;
+      });
+    setTimeout(() => { copyEmail.textContent = "./copy-email"; }, 2500);
   });
 }
