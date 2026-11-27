@@ -183,7 +183,7 @@ const projects = [
     id: "heritage",
     title: "UK Heritage Trails 2026",
     filters: ["web", "2025"],
-    period: "2025 — City, University of London · group project, revamped 2026",
+    period: "2025 — City, University of London · Front-End Web Development module, revamped 2026",
     subtitle: "Travel and cultural discovery website",
     description:
       "A travel and cultural discovery website first built in my Foundation Year and redesigned in 2026 with an editorial look. It covers responsive design, destination pages and visual storytelling, and has a sign-up flow backed by a small Cloudflare Worker.",
@@ -193,7 +193,7 @@ const projects = [
       why: "To revisit my Foundation Year site with stronger design and a real backend."
     },
     note: {
-      text: "This started as a group assignment at City, University of London in 2025. The version shown here is a later revamp."
+      text: "This started as my project for the Front-End Web Development module at City, University of London in 2025. The version shown here is a later revamp."
     },
     tech: ["HTML", "CSS", "JavaScript", "Cloudflare Workers"],
     live: `${PAGES}/UK-Heritage-Trails-2026/`,
