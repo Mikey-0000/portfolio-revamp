@@ -71,7 +71,7 @@ const projects = [
     id: "gaming-map-revamp",
     title: "Gaming Map Revamp",
     filters: ["game", "web", "current"],
-    period: "2026 — Goldsmiths, University of London",
+    period: "2026 — Goldsmiths coursework, since revamped",
     subtitle: "Interactive arcade-style archive of video game history",
     description:
       "An interactive layer over my original Historical Gaming Map. You can walk the star map with the arrow keys and collect data bits, scrub through gaming history from 1952 to today, and play genre mini-games: circuit puzzles, platform jumps, a duel against an AI that learns your habits, a lane runner, a sandbox builder and a survival game. It also has versus-mode radar charts, 19 achievements and a hidden Konami code.",
@@ -79,6 +79,11 @@ const projects = [
       what: "Mini-games, a history timeline, achievements and search on top of my original map.",
       how: "Two add-on files (enhance.js and enhance.css) on every page, with progress saved in localStorage.",
       why: "To turn a static archive into something you play, without rewriting the original."
+    },
+    note: {
+      text: "This started as my Goldsmiths coursework, the original Historical Gaming Map. The revamp adds a new interactive layer on top of it.",
+      link: `${PAGES}/Gaming-Map/`,
+      linkText: "View the original version ↗"
     },
     tech: ["HTML", "CSS", "JavaScript", "Pixel Art"],
     live: `${PAGES}/Gaming-Map-Revamp/`,
@@ -103,6 +108,9 @@ const projects = [
       what: "Three themed sections: a midnight clock, a TV case board, calling cards and a fusion room.",
       how: "HTML, CSS animation and vanilla JavaScript, all static.",
       why: "To practise giving each section its own visual identity and motion."
+    },
+    note: {
+      text: "Unofficial fan project. Persona and its characters, artwork and music belong to their respective owners, and this site isn't affiliated with or endorsed by them."
     },
     tech: ["HTML", "CSS", "JavaScript", "Motion Design"],
     live: `${PAGES}/Persona/`,
@@ -130,6 +138,9 @@ const projects = [
       how: "Vanilla JavaScript with keyboard input and localStorage saves. A Python script generates the pages.",
       why: "To make reading about a game feel like playing it."
     },
+    note: {
+      text: "Unofficial fan project. The Legend of Zelda and its characters and artwork belong to their respective owners, and this site isn't affiliated with or endorsed by them."
+    },
     tech: ["HTML", "CSS", "JavaScript", "localStorage"],
     live: `${PAGES}/Zelda/`,
     source: `${GITHUB}/Zelda`,
@@ -154,6 +165,9 @@ const projects = [
       how: "Vanilla JavaScript, with the browser's canvas and audio APIs for the game and photo booth.",
       why: "To experiment with playful UI and interaction beyond static pages."
     },
+    note: {
+      text: "Unofficial fan project. NewJeans and their music and photos belong to their respective owners, and this site isn't affiliated with or endorsed by them."
+    },
     tech: ["HTML", "CSS", "JavaScript"],
     live: `${PAGES}/Newjeans/`,
     source: `${GITHUB}/Newjeans`,
@@ -169,8 +183,7 @@ const projects = [
     id: "heritage",
     title: "UK Heritage Trails 2026",
     filters: ["web", "2025"],
-    period:
-      "2025 — City, University of London · revamped 2026",
+    period: "2025 — City, University of London · group project, revamped 2026",
     subtitle: "Travel and cultural discovery website",
     description:
       "A travel and cultural discovery website first built in my Foundation Year and redesigned in 2026 with an editorial look. It covers responsive design, destination pages and visual storytelling, and has a sign-up flow backed by a small Cloudflare Worker.",
@@ -178,6 +191,9 @@ const projects = [
       what: "An editorial redesign with a saved \"My Trail\", seasonal themes and a sign-up form.",
       how: "Responsive HTML and CSS with vanilla JavaScript. A Cloudflare Worker stores the sign-ups.",
       why: "To revisit my Foundation Year site with stronger design and a real backend."
+    },
+    note: {
+      text: "This started as a group assignment at City, University of London in 2025. The version shown here is a later revamp."
     },
     tech: ["HTML", "CSS", "JavaScript", "Cloudflare Workers"],
     live: `${PAGES}/UK-Heritage-Trails-2026/`,
@@ -193,7 +209,7 @@ const projects = [
     id: "hollow",
     title: "The Hollow Spire",
     filters: ["game", "current"],
-    period: "2026 — Goldsmiths, University of London",
+    period: "2026 — Goldsmiths coursework, since revamped",
     subtitle: "Turn-based RPG made with p5.js",
     description:
       "An original turn-based RPG built during my Computer Science studies at Goldsmiths, University of London. You climb three floors of the spire, explore each one, and defeat the Hollow Wisp, the Spire Reaper and the Abyssal King to claim the Spire Relic. Battles use attacks, Fire and Ice skills that exploit enemy weaknesses, elixirs and guarding. It has since been revamped with torch lighting, bloom, glowing UI panels, hit particles and screen shake. Move with WASD or the arrow keys, interact with E and select with Enter.",
@@ -201,6 +217,11 @@ const projects = [
       what: "A browser game with interactive storytelling and gameplay mechanics.",
       how: "JavaScript with p5.js, plus a custom effects layer for lighting, bloom and screen shake.",
       why: "To learn game loops, input handling and drawing."
+    },
+    note: {
+      text: "This started as my Goldsmiths coursework submission. The version shown here has since been revamped with new visuals; the original submission is kept in the repository history.",
+      link: `${GITHUB}/hollow-spire/tree/cbc812c`,
+      linkText: "View the original submission ↗"
     },
     tech: ["JavaScript", "p5.js", "Canvas FX"],
     live: `${PAGES}/hollow-spire/`,
@@ -597,6 +618,22 @@ function openProject(project, originEl) {
   document.getElementById("dialog-title").textContent = project.title;
   document.getElementById("dialog-description").textContent =
     project.description;
+
+  /* NOTE: fan-project disclaimer or original-vs-revamp */
+
+  const note = document.getElementById("dialog-note");
+  if (note) {
+    note.replaceChildren();
+    note.hidden = !project.note;
+    if (project.note) {
+      const text = document.createElement("span");
+      text.textContent = project.note.text;
+      note.appendChild(text);
+      if (project.note.link) {
+        note.append(" ", makeLink(project.note.link, project.note.linkText, "note-link"));
+      }
+    }
+  }
 
   /* WHAT / HOW / WHY */
 

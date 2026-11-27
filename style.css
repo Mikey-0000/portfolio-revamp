@@ -1059,3 +1059,26 @@ footer {
     transform: scaleX(1);
   }
 }
+
+/* Fan-project disclaimer / original-vs-revamp note in the popup */
+.project-note {
+  font-size: 12px;
+  color: var(--muted);
+  border-left: 2px solid var(--orange);
+  padding: 6px 0 6px 12px;
+  margin: 4px 0 16px;
+}
+
+.project-note[hidden] {
+  display: none;
+}
+
+.project-note .note-link {
+  color: var(--orange);
+  white-space: nowrap;
+}
+
+.project-note .note-link:hover,
+.project-note .note-link:focus-visible {
+  text-decoration: underline;
+}
