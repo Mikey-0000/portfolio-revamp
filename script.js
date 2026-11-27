@@ -219,9 +219,9 @@ const projects = [
       why: "To learn game loops, input handling and drawing."
     },
     note: {
-      text: "This started as my Goldsmiths coursework submission. The version shown here has since been revamped with new visuals; the original submission is kept in the repository history.",
-      link: `${GITHUB}/hollow-spire/tree/cbc812c`,
-      linkText: "View the original submission ↗"
+      text: "This started as my Goldsmiths coursework submission. The version shown here has since been revamped with new visuals, and the original submission is still playable, unchanged.",
+      link: `${PAGES}/Hollow-Spire-Original/`,
+      linkText: "Play the original submission ↗"
     },
     tech: ["JavaScript", "p5.js", "Canvas FX"],
     live: `${PAGES}/hollow-spire/`,
