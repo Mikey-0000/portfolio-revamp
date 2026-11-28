@@ -62,10 +62,10 @@ const projects = [
     live: `${PAGES}/ashen-hollow/`,
     source: `${GITHUB}/ashen-hollow`,
     images: [
-      "images/ashen-1.jpg?v=e518fae",
-      "images/ashen-2.jpg?v=e518fae",
-      "images/ashen-3.jpg?v=e518fae",
-      "images/ashen-4.jpg?v=e518fae"
+      "images/ashen-1.jpg?v=92f65c5",
+      "images/ashen-2.jpg?v=92f65c5",
+      "images/ashen-3.jpg?v=92f65c5",
+      "images/ashen-4.jpg?v=92f65c5"
     ]
   },
 
@@ -120,12 +120,12 @@ const projects = [
     live: `${PAGES}/Persona/`,
     source: `${GITHUB}/Persona`,
     images: [
-      "images/persona-1.jpg?v=09ab4b8",
-      "images/persona-2.jpg?v=09ab4b8",
-      "images/persona-3.jpg?v=09ab4b8",
-      "images/persona-4.jpg?v=09ab4b8",
-      "images/persona-5.jpg?v=09ab4b8",
-      "images/persona-6.jpg?v=09ab4b8"
+      "images/persona-1.jpg?v=006a347",
+      "images/persona-2.jpg?v=006a347",
+      "images/persona-3.jpg?v=006a347",
+      "images/persona-4.jpg?v=006a347",
+      "images/persona-5.jpg?v=006a347",
+      "images/persona-6.jpg?v=006a347"
     ]
   },
 
